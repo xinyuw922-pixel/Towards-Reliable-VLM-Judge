@@ -1,0 +1,54 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.local.json
+*.pem
+*.key
+
+# Python environments, caches and builds
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+/build/
+/dist/
+
+# Runtime data and outputs
+/data/
+/datasets/
+/outputs/
+/runs/
+/results/
+/cache/
+/checkpoints/
+/tmp/
+*.log
+*.jsonl
+*.png
+!/assets/overview.png
+*.jpg
+!/assets/overview_concept.jpg
+*.jpeg
+*.mp4
+*.pdf
+*.zip
+*.tar
+*.gz
+
+# Local review and agent instructions
+/validation_workspace/
+/AGENTS.md
+/AGENT.md
+/Agent.md
+
+# Editor settings and crash dumps
+.vscode/
+.idea/
+.DS_Store
+/core
+/core.[0-9]*
