@@ -370,7 +370,7 @@ Proxy settings are used only with `--trust-env`.
 
 </details>
 
-## Additional Experiments
+## Controlled Analyses
 
 <details>
 <summary>Structured-CoT: build requests and score</summary>
