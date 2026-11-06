@@ -18,13 +18,12 @@ from utils.minigrid_prompts import TASK_C_ENVIRONMENT_CONTEXT, build_task_c_prom
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SOURCE = (
     ROOT
-    / "rebuttal_packet/10_minigrid_10x_expansion/manifests_scale2_v1"
+    / "outputs/scale2/manifests"
     / "taskC_expanded_manifest.jsonl"
 )
 DEFAULT_OUTPUT = (
     ROOT
-    / "rebuttal_packet/10_minigrid_10x_expansion"
-    / "taskc_prompt_contract_v2"
+    / "outputs/scale2/task_c"
 )
 VARIANTS = {"full", "nocue", "cf"}
 
@@ -259,7 +258,7 @@ def build_base_task_c(raw_root: Path, rows: list[dict[str, Any]], out_dir: Path)
             "source_raw_root": str(raw_root),
             "source_group_id": group_id,
             "source_variant": variant,
-            "generator": "rebuttal_packet/scripts/build_minigrid_10x_acd_manifests.py",
+            "generator": "tools/minigrid/task_c.py",
         })
     return out_rows
 
