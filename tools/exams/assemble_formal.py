@@ -87,7 +87,7 @@ def main():
             step('formal_size_selection', 'tools/minigrid/calibrate_bank.py', '--run-root', run)
             raw = run / 'raw_bank_formal_size'
         audit_suffix = '_formal_similarity' if raw.name == 'raw_bank_formal_size' else '_similarity_audit'
-        similarity_root = Path(os.environ.get('GRIDWM_REPORT_ROOT', str(ROOT / 'rebuttal_packet/10_minigrid_10x_expansion')))
+        similarity_root = Path(os.environ.get('GRIDWM_REPORT_ROOT', str(ROOT / 'outputs/scale2/generation_reports')))
         similarity_path = similarity_root / (run.name + audit_suffix + '.json')
         similarity = json.loads(similarity_path.read_text())
         duplicate_fields = ['exact_action_duplicates', 'exact_state_duplicates', 'exact_image_duplicates',

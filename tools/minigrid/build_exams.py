@@ -19,7 +19,7 @@ from tools.minigrid.task_c import build_base_task_c as build_task_c
 from tools.minigrid.task_d import build_base_task_d as build_task_d
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT_DIR = ROOT / "rebuttal_packet/10_minigrid_10x_expansion"
+OUT_DIR = ROOT / "outputs/scale2"
 SCHEMA_VERSION = "gridwm.exam.v1"
 
 from utils.minigrid_panels import FONT_PATHS
@@ -90,7 +90,7 @@ def validate_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--raw-root", required=True)
-    ap.add_argument("--out-dir", default="rebuttal_packet/10_minigrid_10x_expansion/manifests_scale1_v1")
+    ap.add_argument("--out-dir", default=str(OUT_DIR / "manifests"))
     ap.add_argument("--task-a-target", type=int, default=1030)
     ap.add_argument("--overwrite", action="store_true")
     args = ap.parse_args()

@@ -13,6 +13,8 @@ from typing import Any
 
 from tools.minigrid.task_a import export_split_panels, representation_prompt
 
+ROOT = Path(__file__).resolve().parents[2]
+
 
 TASK_FILES = {
     "A": "taskA_expanded_manifest.jsonl",
@@ -243,12 +245,12 @@ def main() -> None:
     parser.add_argument(
         "--manifest-dir",
         type=Path,
-        default=Path("rebuttal_packet/03_minigrid_expanded/expanded"),
+        default=ROOT / "outputs/scale2/manifests",
     )
     parser.add_argument(
         "--out-dir",
         type=Path,
-        default=Path("rebuttal_packet/03_minigrid_expanded/request_bundle/one_model_smoke"),
+        default=ROOT / "outputs/scale2/request_bundle",
     )
     parser.add_argument("--task-a-n", type=int, default=3)
     parser.add_argument("--mode", choices=["paired", "triad", "balanced", "full"], default="paired")

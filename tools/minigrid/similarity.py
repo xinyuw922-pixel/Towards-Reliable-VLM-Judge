@@ -15,7 +15,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT_DIR = Path(os.environ.get("GRIDWM_REPORT_ROOT", str(ROOT / "rebuttal_packet/10_minigrid_10x_expansion"))).resolve()
+OUT_DIR = Path(os.environ.get("GRIDWM_REPORT_ROOT", str(ROOT / "outputs/scale2/generation_reports"))).resolve()
 
 
 from utils.minigrid_io import load_jsonl

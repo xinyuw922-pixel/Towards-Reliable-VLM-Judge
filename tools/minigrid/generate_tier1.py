@@ -20,7 +20,7 @@ from tools.minigrid.environment_registry import TASKS
 
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT_DIR = Path(os.environ.get("GRIDWM_REPORT_ROOT", str(ROOT / "rebuttal_packet/10_minigrid_10x_expansion"))).resolve()
+OUT_DIR = Path(os.environ.get("GRIDWM_REPORT_ROOT", str(ROOT / "outputs/scale2/generation_reports"))).resolve()
 
 STABLE_ENV_ID_POOLS: dict[str, list[str]] = {
     "memory": [

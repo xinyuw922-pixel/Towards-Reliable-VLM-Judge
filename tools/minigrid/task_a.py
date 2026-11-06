@@ -239,7 +239,7 @@ def build_task_a(raw_root: Path, rows: list[dict[str, Any]], out_dir: Path, targ
                     "current_frame": frames[step_idx],
                     "correct_next_frame": correct,
                     "candidate_frames": candidates,
-                    "generator": "rebuttal_packet/scripts/build_minigrid_10x_acd_manifests.py",
+                    "generator": "tools/minigrid/task_a.py",
                 })
                 progressed = True
                 break

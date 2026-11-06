@@ -111,6 +111,22 @@ external output directory. Use `--profile smoke` for a small run and
 `--profile formal` for the formal question counts above. Default generation
 seed: 830000. Progress is recorded in `generation_status.json` and `logs/`.
 
+The launchers use the explicit `--output` run directory. When invoking
+Scale-2 modules directly without output arguments, defaults are relative to
+the repository root:
+
+| Purpose | Default Directory |
+| --- | --- |
+| Generation, validation and similarity reports | `outputs/scale2/generation_reports/` |
+| Expanded manifests and request-builder input | `outputs/scale2/manifests/` |
+| Request bundle | `outputs/scale2/request_bundle/` |
+| Task C prompt-conditioned outputs | `outputs/scale2/task_c/` |
+| Task D matched-reference outputs | `outputs/scale2/task_d/` |
+
+Explicit path arguments take precedence over defaults. `GRIDWM_REPORT_ROOT`
+overrides the report directory only; it does not relocate manifests or
+request bundles. Generated outputs are excluded from version control.
+
 The sections below pair each generator with its scorer. Use the shared
 [API inference entry](#model-inference) to collect matching responses.
 Scoring writes `native/`, `scoring_receipt.json` and `scoring.log`;

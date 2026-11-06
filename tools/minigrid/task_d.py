@@ -17,12 +17,11 @@ from utils.minigrid_prompts import TASK_D_REFERENCE_PROMPT
 
 ROOT = Path(__file__).resolve().parents[2]
 SCALE2_ROOT = (
-    ROOT / "rebuttal_packet/10_minigrid_10x_expansion/manifests_scale2_v1"
+    ROOT / "outputs/scale2/manifests"
 )
 DEFAULT_OUTPUT = (
     ROOT
-    / "rebuttal_packet/10_minigrid_10x_expansion"
-    / "taskd_mission_matched_v2"
+    / "outputs/scale2/task_d"
 )
 LEGACY_ROOT = ROOT / "data/scale2/raw_bank_runs"
 DEFAULT_RAW_SOURCES = (
@@ -428,7 +427,7 @@ def build_base_task_d(task_c_rows: list[dict[str, Any]], out_dir: Path) -> list[
             "reference_group_id": ref["group_id"],
             "query_uid": row["uid"],
             "source_group_id": row["group_id"],
-            "generator": "rebuttal_packet/scripts/build_minigrid_10x_acd_manifests.py",
+            "generator": "tools/minigrid/task_d.py",
         })
     return out_rows
 
