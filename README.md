@@ -27,7 +27,7 @@
 </div>
 
 <p align="center">
-  <img src="assets/overview_concept.jpg" alt="GridWM-Judge overview: aligned trajectories, presentation and representation probes, and counterfactual judgments" width="100%">
+  <img src="assets/overview.png" alt="GridWM-Judge overview: aligned trajectories, presentation and representation probes, and counterfactual judgments" width="100%">
 </p>
 
 <p align="center"><em>GridWM-Judge: aligned trajectories, presentation probes, and counterfactual judgments.</em></p>
