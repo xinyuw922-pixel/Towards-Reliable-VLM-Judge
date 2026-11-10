@@ -10,11 +10,11 @@
     <a href="https://openreview.net/profile?id=~Qihang_Jin1">Qihang Jin<sup>*</sup></a>,
     <br>
     <a href="https://openreview.net/profile?id=~Tianyuan_Wang2">Tianyuan Wang</a>,
-    <a href="https://openreview.net/profile?id=~Jian_Di1">Jian Di<sup>&dagger;</sup></a>,
     <a href="https://openreview.net/profile?id=~Hongbing_Luo1">Hongbing Luo</a>,
     <a href="https://openreview.net/profile?id=~Pengfei_Li24">Pengfei Li</a>,
     <a href="https://openreview.net/profile?id=~Wenjun_Lv1">Wenjun Lv</a>,
-    <a href="https://openreview.net/profile?id=~Yu_Kang5">Yu Kang</a>
+    <a href="https://openreview.net/profile?id=~Yu_Kang5">Yu Kang</a>,
+    <a href="https://openreview.net/profile?id=~Jian_Di1">Jian Di<sup>&dagger;</sup></a>
   </p>
   <p><sup>*</sup> Equal contribution (co-first authors). <sup>&dagger;</sup> Corresponding author.</p>
   <p>University of Science and Technology of China</p>
