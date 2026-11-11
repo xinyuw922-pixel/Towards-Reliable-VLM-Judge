@@ -26,6 +26,10 @@
   </p>
 </div>
 
+## Contents
+
+[Overview](#overview) · [Quick Start](#quick-start) · [Installation](#installation) · [Experiments](#experiments) · [Model Inference](#model-inference) · [Controlled Analyses](#controlled-analyses) · [Repository Layout](#repository-layout) · [Outputs And Resume](#outputs-and-resume) · [Citation](#citation) · [License](#license)
+
 <p align="center">
   <img src="assets/overview.png" alt="GridWM-Judge overview: aligned trajectories, presentation and representation probes, and counterfactual judgments" width="100%">
 </p>
@@ -511,6 +515,24 @@ Generated images, exams, requests and responses stay outside the source tree.
   honor `TMPDIR`, with a system-temp fallback for paths containing a colon.
 
 </details>
+
+## Citation
+
+If you find our work useful, please consider citing our paper:
+
+```bibtex
+@inproceedings{zhang2026reliablevlmjudges,
+  title     = {Towards Reliable {VLM} Judges: State-Conditional Invariance and Presentation-Aware Diagnostics},
+  author    = {Zhang, Qinan and Wang, Xinyu and Jin, Qihang and Wang, Tianyuan and Luo, Hongbing and Li, Pengfei and Lv, Wenjun and Kang, Yu and Di, Jian},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026},
+  note      = {Accepted to the NeurIPS 2026 Evaluations and Datasets Track},
+  eprint    = {2611.13596},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2611.13596}
+}
+```
 
 ## License
 

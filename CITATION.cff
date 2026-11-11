@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you find our work useful, please cite the paper below."
+type: software
+title: "Towards Reliable VLM Judges: State-Conditional Invariance and Presentation-Aware Diagnostics"
+authors:
+  - family-names: Zhang
+    given-names: Qinan
+  - family-names: Wang
+    given-names: Xinyu
+  - family-names: Jin
+    given-names: Qihang
+  - family-names: Wang
+    given-names: Tianyuan
+  - family-names: Luo
+    given-names: Hongbing
+  - family-names: Li
+    given-names: Pengfei
+  - family-names: Lv
+    given-names: Wenjun
+  - family-names: Kang
+    given-names: Yu
+  - family-names: Di
+    given-names: Jian
+repository-code: "https://github.com/xinyuw922-pixel/Towards-Reliable-VLM-Judge"
+url: "https://xinyuw922-pixel.github.io/Towards-Reliable-VLM-Judge/"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Towards Reliable VLM Judges: State-Conditional Invariance and Presentation-Aware Diagnostics"
+  authors:
+    - family-names: Zhang
+      given-names: Qinan
+    - family-names: Wang
+      given-names: Xinyu
+    - family-names: Jin
+      given-names: Qihang
+    - family-names: Wang
+      given-names: Tianyuan
+    - family-names: Luo
+      given-names: Hongbing
+    - family-names: Li
+      given-names: Pengfei
+    - family-names: Lv
+      given-names: Wenjun
+    - family-names: Kang
+      given-names: Yu
+    - family-names: Di
+      given-names: Jian
+  collection-title: "Advances in Neural Information Processing Systems"
+  year: 2026
+  notes: "Accepted to the NeurIPS 2026 Evaluations and Datasets Track"
+  identifiers:
+    - type: other
+      value: "arXiv:2611.13596"
+      description: "arXiv preprint"
+  url: "https://arxiv.org/abs/2611.13596"
