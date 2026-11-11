@@ -5,7 +5,7 @@ const names = {doorkey:"DoorKey",keycorridor:"KeyCorridor",lavagap:"LavaGap",mem
 const variants = {full:"Full",nocue:"NoCue",cf:"CF"};
 const styles = {clean:"Original",noisy:"Noise",noise:"Noise",style:"Style"};
 const taskNames = {A:"Action-conditioned transition",B:"Single-frame observation",C:"Goal-conditioned trajectory",D:"Reference-conditioned judgment",E:"Prefix state tracking"};
-let data, current, families = [];
+let data, showcaseData, current, families = [];
 const state = {task:"C",env:"keycorridor",case:"",variant:"full",style:"clean",rep:"composite",revealed:false};
 
 function icons(){window.lucide?.createIcons();}
@@ -71,11 +71,11 @@ function showcase(){
   const target=$("triplet");target.replaceChildren();
   const descriptions={full:"Original evidence",nocue:"Evidence removed · outcome preserved",cf:"Causal intervention · outcome changed"};
   for(const [index,variant] of ["full","nocue","cf"].entries()){
-    const row=data.examples.find(r=>r.uid===data.showcase[variant]);
+    const row=showcaseData.examples.find(r=>r.variant===variant);
     const article=element("article","triplet-item");const head=element("div","triplet-header");const title=element("span","triplet-title");title.append(element("span","triplet-index","0"+(index+1)),document.createTextNode(variants[variant]));
     const verdict=element("span","verdict"+(variant==="cf"?" fail":""));const icon=element("i");icon.setAttribute("data-lucide",variant==="cf"?"x":"check");verdict.append(icon,document.createTextNode(row.answer));head.append(title,verdict);
     const fig=element("figure");const img=element("img","triplet-image");img.src=row.composite.src;img.alt=variants[variant]+" evidence from "+row.uid;img.addEventListener("click",()=>openImage(img.src,row.uid));fig.append(img,element("figcaption","",descriptions[variant]));article.append(head,fig);target.append(article);
-    $("showcase-source").textContent="Task C · "+names[row.env]+" · "+row.group;
+    $("showcase-source").textContent="Task C · "+names[row.env]+" · "+row.group+" · seed "+row.seed;
   }
   icons();
 }
@@ -91,10 +91,14 @@ $("reveal").addEventListener("click",()=>{state.revealed=true;render();});
 $("close-dialog").addEventListener("click",()=>$("image-dialog").close());
 $("image-dialog").addEventListener("click",event=>{if(event.target===$("image-dialog"))$("image-dialog").close();});
 $("share").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("toast").textContent="Example link copied";}catch{$("toast").textContent=location.href;}$("toast").hidden=false;setTimeout(()=>$("toast").hidden=true,2500);});
-fetch("examples.json").then(response=>{if(!response.ok)throw Error("Example data unavailable");return response.json();}).then(value=>{
-  data=value;const query=new URLSearchParams(location.hash.slice(1));for(const key of ["task","env","case","variant","style","rep"]){if(query.has(key))state[key]=query.get(key);}
+Promise.all(["examples.json","showcase.json?v=20261111"].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error("Example data unavailable");return response.json();}))).then(([value,showcaseValue])=>{
+  data=value;showcaseData=showcaseValue;const anchor=location.hash.slice(1);const query=new URLSearchParams(anchor);for(const key of ["task","env","case","variant","style","rep"]){if(query.has(key))state[key]=query.get(key);}
   if(!"ABCDE".includes(state.task)||state.task.length!==1)state.task="C";
   if(!["composite","split"].includes(state.rep))state.rep="composite";
   showcase();render();
+  if(["principle","examples","benchmark","resources"].includes(anchor)){
+    history.replaceState(null,"","#"+anchor);
+    requestAnimationFrame(()=>$(anchor).scrollIntoView());
+  }
 }).catch(error=>{$("evidence").textContent="Examples could not be loaded.";$("triplet").textContent="Examples unavailable";console.error(error);});
 icons();

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="State-Conditional Invariance for reliable VLM judges. Explore real simulator-grounded benchmark examples.">
   <title>Towards Reliable VLM Judges</title>
-  <link rel="stylesheet" href="style.css?v=20261111-gif-grid">
+  <link rel="stylesheet" href="style.css?v=20261111-showcase">
   <script src="assets/lucide.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=20261111-showcase" defer></script>
 </head>
 <body>
-  <header class="site-nav"><nav aria-label="Main navigation"><a href="#principle">Overview</a><a href="#benchmark">Examples</a><a href="#resources">Resources</a></nav></header>
+  <header class="site-nav"><nav aria-label="Main navigation"><a href="#principle">Overview</a><a href="#examples">Examples</a><a href="#benchmark">Exams</a><a href="#resources">Resources</a></nav></header>
   <main>
     <section class="publication">
       <h1>Towards Reliable VLM Judges:</h1>
@@ -25,7 +25,7 @@
     <section id="principle" class="principle section">
       <div class="section-heading"><div><p class="eyebrow">THE RELIABILITY PRINCIPLE</p><h2>Stable when it should be.<br> Sensitive when it matters.</h2></div><p class="section-intro">Presentation can change without changing the task outcome. A causal intervention cannot. A reliable judge must distinguish the two.</p></div>
       <figure class="overview-figure"><a href="assets/overview.png" target="_blank" rel="noreferrer"><img src="assets/overview.png" alt="Towards Reliable VLM Judges overview: presentation invariance, action-conditioned dynamics, representation exchangeability and causal sensitivity" width="7448" height="3380"></a></figure>
-      <h3 class="example-heading">A real Full / NoCue / CF example</h3>
+      <h3 id="examples" class="example-heading">A real Full / NoCue / CF example</h3>
       <div class="triplet" id="triplet" aria-label="Full, NoCue and CF from one real trajectory"><p class="loading">Loading recorded examples…</p></div>
       <div class="triplet-caption"><span><span class="small-dot"></span> Same source group · simulator-grounded answers</span><code id="showcase-source"></code></div>
       <div class="animated-examples" aria-label="Task C global-map animated visual variants">
@@ -37,7 +37,7 @@
     </section>
 
     <section id="benchmark" class="section benchmark">
-      <div class="section-heading"><div><p class="eyebrow">INSIDE THE BENCHMARK</p><h2>One benchmark. Five diagnostics.</h2></div><p class="section-intro">From local observations to trajectory-level decisions, inspect the evidence behind each question.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">INSIDE THE BENCHMARK</p><h2>One benchmark. Five tasks.</h2></div><p class="section-intro">From local observations to trajectory-level decisions, inspect the evidence behind each question.</p></div>
       <div class="task-tabs" role="tablist" aria-label="Diagnostic task">
         <button role="tab" data-task="A" aria-selected="false"><span>A</span> Transitions</button>
         <button role="tab" data-task="B" aria-selected="false"><span>B</span> Perception</button>
@@ -60,7 +60,7 @@
       <p class="dataset-caption">Curated examples from a freshly generated base exam: A 103 · B 144 · C 486 · D 144 · E 325. Answers are simulator labels, not model predictions.</p>
     </section>
 
-    <section class="section diagnostic-section"><div class="section-heading"><div><p class="eyebrow">BEYOND A SINGLE SCORE</p><h2>Correctness is only one axis.</h2></div></div><div class="diagnostics"><article><span class="number">01</span><h3>Correctness</h3><p>Does the verdict agree with the simulator-grounded task outcome?</p></article><article><span class="number">02</span><h3>Presentation invariance</h3><p>Does the judgment survive semantics-preserving changes to the evidence interface?</p></article><article><span class="number">03</span><h3>Causal sensitivity</h3><p>Does the judgment respond when an intervention changes the task outcome?</p></article></div></section>
+    <section class="section diagnostic-section"><div class="section-heading"><div><p class="eyebrow">BEYOND A SINGLE SCORE</p><h2>Stability alone can not guarantee causal discrimination.</h2></div></div><div class="diagnostics"><article><span class="number">01</span><h3>Correctness</h3><p>Does the verdict agree with the simulator-grounded task outcome?</p></article><article><span class="number">02</span><h3>Presentation invariance</h3><p>Does the judgment survive semantics-preserving changes to the evidence interface?</p></article><article><span class="number">03</span><h3>Causal sensitivity</h3><p>Does the judgment respond when an intervention changes the task outcome?</p></article></div></section>
 
     <section id="resources" class="section resources"><div><p class="eyebrow">REPRODUCIBLE BY CONSTRUCTION</p><h2>From trajectories to verdicts.</h2><p>Generate images, build exams, collect responses and score them with the same pipeline.</p></div><a class="button primary" href="https://github.com/xinyuw922-pixel/Towards-Reliable-VLM-Judge" target="_blank" rel="noreferrer">Explore the code <i data-lucide="arrow-up-right"></i></a></section>
     <footer><span>Towards Reliable VLM Judges · State-Conditional Invariance</span><span>University of Science and Technology of China</span></footer>

@@ -1,0 +1,78 @@
+{
+  "view": "Global-map visualization of the archived GIF trajectory; not a model-input exam.",
+  "source_group": "keycorridor_s000000",
+  "examples": [
+    {
+      "uid": "C.keycorridor.keycorridor_s000000.full.orig.clean.global",
+      "env": "keycorridor",
+      "env_id": "MiniGrid-KeyCorridorS6R3-v0",
+      "group": "keycorridor_s000000",
+      "seed": 0,
+      "variant": "full",
+      "answer": "Success",
+      "selected_steps": [
+        0,
+        6,
+        7,
+        8,
+        15,
+        40,
+        41
+      ],
+      "composite": {
+        "src": "assets/taskc_showcase/full.png",
+        "width": 672,
+        "height": 672
+      },
+      "image_sha256": "34b93dd8e0670f69bf966c4fe3d8abb588a75955cd661c5f4b95234a4ef325ed"
+    },
+    {
+      "uid": "C.keycorridor.keycorridor_s000000.nocue.orig.clean.global",
+      "env": "keycorridor",
+      "env_id": "MiniGrid-KeyCorridorS6R3-v0",
+      "group": "keycorridor_s000000",
+      "seed": 0,
+      "variant": "nocue",
+      "answer": "Success",
+      "selected_steps": [
+        0,
+        6,
+        7,
+        8,
+        15,
+        40,
+        41
+      ],
+      "composite": {
+        "src": "assets/taskc_showcase/nocue.png",
+        "width": 672,
+        "height": 672
+      },
+      "image_sha256": "6a6ef62eb6b7e3313cc0073feaef608b80de8670e66a3cf2f13b698e8c56998b"
+    },
+    {
+      "uid": "C.keycorridor.keycorridor_s000000.cf.orig.clean.global",
+      "env": "keycorridor",
+      "env_id": "MiniGrid-KeyCorridorS6R3-v0",
+      "group": "keycorridor_s000000",
+      "seed": 0,
+      "variant": "cf",
+      "answer": "Fail",
+      "selected_steps": [
+        0,
+        6,
+        7,
+        8,
+        15,
+        40,
+        41
+      ],
+      "composite": {
+        "src": "assets/taskc_showcase/cf.png",
+        "width": 672,
+        "height": 672
+      },
+      "image_sha256": "f7162f40af83259cb005424a7fbe40bff3eb69a13b2236d43d59bd6609735c1f"
+    }
+  ]
+}
