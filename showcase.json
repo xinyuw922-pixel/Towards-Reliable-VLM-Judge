@@ -1,9 +1,9 @@
 {
-  "view": "Global-map visualization of the archived GIF trajectory; not a model-input exam.",
+  "view": "Original agent-view model-input storyboards of the archived GIF trajectory.",
   "source_group": "keycorridor_s000000",
   "examples": [
     {
-      "uid": "C.keycorridor.keycorridor_s000000.full.orig.clean.global",
+      "uid": "C.keycorridor.keycorridor_s000000.full.orig.clean",
       "env": "keycorridor",
       "env_id": "MiniGrid-KeyCorridorS6R3-v0",
       "group": "keycorridor_s000000",
@@ -20,14 +20,14 @@
         41
       ],
       "composite": {
-        "src": "assets/taskc_showcase/full.png",
+        "src": "assets/taskc_showcase/full.png?v=agent-view",
         "width": 672,
         "height": 672
       },
-      "image_sha256": "34b93dd8e0670f69bf966c4fe3d8abb588a75955cd661c5f4b95234a4ef325ed"
+      "image_sha256": "22e8aacaf67c1a7ee0800fd90af3d66a5cc955312bf3f1af4c6a0d76f9217ea2"
     },
     {
-      "uid": "C.keycorridor.keycorridor_s000000.nocue.orig.clean.global",
+      "uid": "C.keycorridor.keycorridor_s000000.nocue.orig.clean",
       "env": "keycorridor",
       "env_id": "MiniGrid-KeyCorridorS6R3-v0",
       "group": "keycorridor_s000000",
@@ -44,14 +44,14 @@
         41
       ],
       "composite": {
-        "src": "assets/taskc_showcase/nocue.png",
+        "src": "assets/taskc_showcase/nocue.png?v=agent-view",
         "width": 672,
         "height": 672
       },
-      "image_sha256": "6a6ef62eb6b7e3313cc0073feaef608b80de8670e66a3cf2f13b698e8c56998b"
+      "image_sha256": "dacf5313dfe39f90cabc3307e1a7755be82fad9baa6c45c2202e914ce740650b"
     },
     {
-      "uid": "C.keycorridor.keycorridor_s000000.cf.orig.clean.global",
+      "uid": "C.keycorridor.keycorridor_s000000.cf.orig.clean",
       "env": "keycorridor",
       "env_id": "MiniGrid-KeyCorridorS6R3-v0",
       "group": "keycorridor_s000000",
@@ -68,11 +68,11 @@
         41
       ],
       "composite": {
-        "src": "assets/taskc_showcase/cf.png",
+        "src": "assets/taskc_showcase/cf.png?v=agent-view",
         "width": 672,
         "height": 672
       },
-      "image_sha256": "f7162f40af83259cb005424a7fbe40bff3eb69a13b2236d43d59bd6609735c1f"
+      "image_sha256": "e5fffb87100d2c78a1ad30d557bd285d16cd17c59b5c945789e38490ea233791"
     }
   ]
 }

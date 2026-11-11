@@ -91,7 +91,7 @@ $("reveal").addEventListener("click",()=>{state.revealed=true;render();});
 $("close-dialog").addEventListener("click",()=>$("image-dialog").close());
 $("image-dialog").addEventListener("click",event=>{if(event.target===$("image-dialog"))$("image-dialog").close();});
 $("share").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("toast").textContent="Example link copied";}catch{$("toast").textContent=location.href;}$("toast").hidden=false;setTimeout(()=>$("toast").hidden=true,2500);});
-Promise.all(["examples.json","showcase.json?v=20261111"].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error("Example data unavailable");return response.json();}))).then(([value,showcaseValue])=>{
+Promise.all(["examples.json","showcase.json?v=20261111-agent-view"].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error("Example data unavailable");return response.json();}))).then(([value,showcaseValue])=>{
   data=value;showcaseData=showcaseValue;const anchor=location.hash.slice(1);const query=new URLSearchParams(anchor);for(const key of ["task","env","case","variant","style","rep"]){if(query.has(key))state[key]=query.get(key);}
   if(!"ABCDE".includes(state.task)||state.task.length!==1)state.task="C";
   if(!["composite","split"].includes(state.rep))state.rep="composite";
