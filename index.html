@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="State-Conditional Invariance for reliable VLM judges. Explore real simulator-grounded benchmark examples.">
   <title>Towards Reliable VLM Judges</title>
-  <link rel="stylesheet" href="style.css?v=20261111-showcase">
+  <link rel="stylesheet" href="style.css?v=20261112-caption">
   <script src="assets/lucide.min.js" defer></script>
   <script src="app.js?v=20261111-agent-view" defer></script>
 </head>
@@ -29,6 +29,7 @@
       <div class="triplet" id="triplet" aria-label="Full, NoCue and CF from one real trajectory"><p class="loading">Loading recorded examples…</p></div>
       <div class="triplet-caption"><span><span class="small-dot"></span> Same source group · simulator-grounded answers</span><code id="showcase-source"></code></div>
       <div class="animated-examples" aria-label="Task C global-map animated visual variants">
+        <p class="section-intro animated-caption">Task C (trajectory judgment) in the MiniGrid KeyCorridor environment.</p>
         <div class="animated-columns"><span></span><strong>Full</strong><strong>NoCue</strong><strong>CF</strong></div>
         <div class="animated-row"><h4>Clean</h4><img src="assets/taskc_gifs/full_clean.gif?v=global-map" width="448" height="448" alt="Full trajectory global map, clean"><img src="assets/taskc_gifs/nocue_clean.gif?v=global-map" width="448" height="448" alt="NoCue trajectory global map, clean"><img src="assets/taskc_gifs/cf_clean.gif?v=global-map" width="448" height="448" alt="CF trajectory global map, clean"></div>
         <div class="animated-row"><h4>Noisy</h4><img src="assets/taskc_gifs/full_noisy.gif?v=global-map" width="448" height="448" alt="Full trajectory global map, noisy"><img src="assets/taskc_gifs/nocue_noisy.gif?v=global-map" width="448" height="448" alt="NoCue trajectory global map, noisy"><img src="assets/taskc_gifs/cf_noisy.gif?v=global-map" width="448" height="448" alt="CF trajectory global map, noisy"></div>
