@@ -60,6 +60,17 @@ h2 { font-size: 29px; font-weight: 650; line-height: 1.3; }
 .overview-figure { margin: 0; width: 100%; }
 .overview-figure img { display: block; width: 100%; height: auto; }
 .example-heading { text-align: center; margin: 36px 0 23px; }
+.animated-examples { margin-top: 36px; }
+.animated-columns, .animated-row { display: grid; grid-template-columns: 54px repeat(3, minmax(0, 1fr)); gap: 16px; align-items: center; }
+.animated-columns { text-align: center; margin-bottom: 12px; font-size: 14px; }
+.animated-row { margin-bottom: 20px; }
+.animated-row h4 { font-size: 13px; font-weight: 600; margin: 0; }
+.animated-row img { display: block; width: 100%; height: auto; aspect-ratio: 1; image-rendering: pixelated; }
+@media (max-width: 600px) {
+  .animated-columns, .animated-row { grid-template-columns: 38px repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .animated-columns { font-size: 11px; }
+  .animated-row h4 { font-size: 10px; }
+}
 .triplet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; min-height: 230px; }
 .triplet-item { min-width: 0; }
 .triplet-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px; gap: 8px; }
