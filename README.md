@@ -39,6 +39,8 @@
 - [Citation](#citation)
 - [License](#license)
 
+## Overview
+
 <p align="center">
   <img src="assets/overview.png" alt="GridWM-Judge overview: aligned trajectories, presentation and representation probes, and counterfactual judgments" width="100%">
 </p>
@@ -51,8 +53,6 @@
 Vision-language models (VLMs) are increasingly used as automated judges for multimodal and embodied tasks, yet aggregate accuracy or consistency alone does not reveal whether a judge changes its verdict for the right reason. We propose State-Conditional Invariance (SCI), a reliability principle requiring a judge to remain stable under semantics-preserving presentation changes while responding to causal interventions that change the task outcome. We instantiate SCI in GridWM-Judge, a simulator-grounded diagnostic benchmark built from deterministic MiniGrid trajectories with aligned Full, evidence-removal, and counterfactual variants, plus presentation and representation probes. Across five diagnostic tasks, GridWM-Judge tests local perception, action-conditioned transitions, presentation stability, representation exchangeability, and Full-CF causal discrimination. Evaluating current VLM judges reveals separable failures, including presentation sensitivity, representation fragility, causal misgrounding, action-insensitive heuristics, and stability traps. These results show that reliable VLM-as-a-judge evaluation requires joint reporting of correctness, presentation invariance, and causal sensitivity rather than a single accuracy or consistency score.
 
 </details>
-
-## Overview
 
 | Dataset | Tasks | Formal Questions |
 | --- | --- | --- |
