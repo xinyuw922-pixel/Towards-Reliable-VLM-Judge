@@ -28,7 +28,16 @@
 
 ## Contents
 
-[Overview](#overview) · [Quick Start](#quick-start) · [Installation](#installation) · [Experiments](#experiments) · [Model Inference](#model-inference) · [Controlled Analyses](#controlled-analyses) · [Repository Layout](#repository-layout) · [Outputs And Resume](#outputs-and-resume) · [Citation](#citation) · [License](#license)
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [Experiments](#experiments)
+- [Model Inference](#model-inference)
+- [Controlled Analyses](#controlled-analyses)
+- [Repository Layout](#repository-layout)
+- [Outputs And Resume](#outputs-and-resume)
+- [Citation](#citation)
+- [License](#license)
 
 <p align="center">
   <img src="assets/overview.png" alt="GridWM-Judge overview: aligned trajectories, presentation and representation probes, and counterfactual judgments" width="100%">
