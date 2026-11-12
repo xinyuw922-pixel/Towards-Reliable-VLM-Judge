@@ -29,10 +29,10 @@ svg { width: 18px; height: 18px; stroke-width: 1.8; flex-shrink: 0; }
 button svg { pointer-events: none; }
 main { max-width: 1100px; margin: auto; padding: 0 32px; }
 section { scroll-margin-top: 28px; }
-.site-nav { height: 52px; display: flex; align-items: center; justify-content: center; }
-.site-nav nav { display: flex; gap: 30px; font-size: 16px; font-weight: 600; }
-.site-nav a { color: #444; }
-.site-nav a:hover { color: var(--blue); }
+.site-nav { height: 74px; display: flex; align-items: center; justify-content: center; padding: 14px 32px; }
+.site-nav nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: 1036px; gap: 16px; font-size: 16px; font-weight: 600; }
+.site-nav a { display: flex; align-items: center; justify-content: center; height: 44px; min-width: 0; padding: 0 2px; color: #444; background: var(--soft); border: 1px solid #ddd; border-radius: 4px; }
+.site-nav a:hover { color: var(--blue); background: #eef6fc; border-color: #a3cce5; }
 .publication { text-align: center; padding: 28px 0 35px; max-width: 1000px; margin: auto; }
 h1 { font-size: 43px; font-weight: 650; line-height: 1.14; color: #0798e2; }
 .paper-subtitle { font-size: 34px; line-height: 1.19; font-weight: 650; margin: 8px auto 0; }
@@ -158,12 +158,14 @@ dialog img { display: block; max-width: 100%; height: auto; margin: auto; }
 [hidden] { display: none !important; }
 @media (min-width: 1450px) {
   main { max-width: 1150px; }
+  .site-nav nav { max-width: 1086px; }
   .publication { padding-top: 35px; }
 }
 @media (max-width: 760px) {
   main { padding: 0 19px; }
-  .site-nav { height: 46px; }
-  .site-nav nav { gap: 20px; font-size: 14px; }
+  .site-nav { height: 66px; padding: 12px; }
+  .site-nav nav { gap: 6px; font-size: 14px; }
+  .site-nav a { height: 42px; }
   .publication { padding: 22px 0 26px; }
   h1 { font-size: 30px; line-height: 1.2; }
   .paper-subtitle { font-size: 25px; line-height: 1.25; margin-top: 8px; }
@@ -216,4 +218,9 @@ dialog img { display: block; max-width: 100%; height: auto; margin: auto; }
   .resources h2 { font-size: 25px; }
   .resources p:not(.eyebrow) { font-size: 14px; }
   footer { font-size: 10px; }
+}
+@media (max-width: 360px) {
+  .site-nav { padding-left: 6px; padding-right: 6px; }
+  .site-nav nav { gap: 4px; font-size: 12px; }
+  .site-nav a { padding: 0; }
 }
