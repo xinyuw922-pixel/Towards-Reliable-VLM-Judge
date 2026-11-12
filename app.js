@@ -91,6 +91,29 @@ $("reveal").addEventListener("click",()=>{state.revealed=true;render();});
 $("close-dialog").addEventListener("click",()=>$("image-dialog").close());
 $("image-dialog").addEventListener("click",event=>{if(event.target===$("image-dialog"))$("image-dialog").close();});
 $("share").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("toast").textContent="Example link copied";}catch{$("toast").textContent=location.href;}$("toast").hidden=false;setTimeout(()=>$("toast").hidden=true,2500);});
+let citationResetTimeout;
+$("copy-citation").addEventListener("click",async()=>{
+  const button=$("copy-citation");button.disabled=true;
+  try{
+    await navigator.clipboard.writeText(document.querySelector("#citation code").textContent);
+    const icon=element("i");icon.setAttribute("data-lucide","check");button.replaceChildren(icon);
+    button.setAttribute("aria-label","BibTeX copied");button.title="BibTeX copied";icons();
+    $("toast").textContent="BibTeX copied";
+    clearTimeout(citationResetTimeout);
+    citationResetTimeout=setTimeout(()=>{
+      const icon=element("i");icon.setAttribute("data-lucide","copy");button.replaceChildren(icon);
+      button.setAttribute("aria-label","Copy BibTeX");button.title="Copy BibTeX";icons();
+    },2500);
+  }catch{
+    clearTimeout(citationResetTimeout);
+    const icon=element("i");icon.setAttribute("data-lucide","copy");button.replaceChildren(icon);
+    button.setAttribute("aria-label","Copy BibTeX");button.title="Copy BibTeX";icons();
+    $("toast").textContent="Could not copy BibTeX.";
+  }finally{
+    button.disabled=false;$("toast").hidden=false;
+    setTimeout(()=>$("toast").hidden=true,2500);
+  }
+});
 Promise.all(["examples.json","showcase.json?v=20261111-agent-view"].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error("Example data unavailable");return response.json();}))).then(([value,showcaseValue])=>{
   data=value;showcaseData=showcaseValue;const anchor=location.hash.slice(1);const query=new URLSearchParams(anchor);for(const key of ["task","env","case","variant","style","rep"]){if(query.has(key))state[key]=query.get(key);}
   if(!"ABCDE".includes(state.task)||state.task.length!==1)state.task="C";

@@ -142,6 +142,8 @@ select:disabled { background: #f2f2f2; color: #999; }
 h3 { font-size: 19px; font-weight: 600; margin: 5px 0 12px; }
 .diagnostics p { font-size: 14px; color: #777; line-height: 1.8; }
 .citation { border-top: 1px solid #eee; }
+.citation-heading { position: relative; padding: 0 42px; }
+.citation-heading .icon-button { position: absolute; right: 0; top: 0; width: 38px; height: 38px; background: var(--soft); border: 1px solid #ddd; }
 .citation pre { margin: 0; padding: 22px; background: var(--soft); border: 1px solid var(--line); border-radius: 4px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; line-height: 1.65; }
 .citation code { font-size: inherit; }
 .resources { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 20px; border-top: 1px solid #eee; }
