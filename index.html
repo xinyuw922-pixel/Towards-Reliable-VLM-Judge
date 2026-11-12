@@ -6,9 +6,9 @@
   <meta name="description" content="State-Conditional Invariance for reliable VLM judges. Explore real simulator-grounded benchmark examples.">
   <title>Towards Reliable VLM Judges: State-Conditional Invariance and Presentation-Aware Diagnostics</title>
   <link rel="icon" href="assets/ustc.ico?v=20261112" type="image/x-icon">
-  <link rel="stylesheet" href="style.css?v=20261112-caption">
+  <link rel="stylesheet" href="style.css?v=20261112-citation">
   <script src="assets/lucide.min.js" defer></script>
-  <script src="app.js?v=20261111-agent-view" defer></script>
+  <script src="app.js?v=20261112-citation" defer></script>
 </head>
 <body>
   <header class="site-nav"><nav aria-label="Main navigation"><a href="#principle">Overview</a><a href="#examples">Examples</a><a href="#benchmark">Exams</a><a href="#resources">Resources</a></nav></header>
@@ -63,6 +63,21 @@
     </section>
 
     <section class="section diagnostic-section"><div class="section-heading"><div><p class="eyebrow">BEYOND A SINGLE SCORE</p><h2>Stability alone can not guarantee causal discrimination.</h2></div></div><div class="diagnostics"><article><span class="number">01</span><h3>Correctness</h3><p>Does the verdict agree with the simulator-grounded task outcome?</p></article><article><span class="number">02</span><h3>Presentation invariance</h3><p>Does the judgment survive semantics-preserving changes to the evidence interface?</p></article><article><span class="number">03</span><h3>Causal sensitivity</h3><p>Does the judgment respond when an intervention changes the task outcome?</p></article></div></section>
+
+    <section id="citation" class="section citation">
+      <div class="section-heading"><h2>Citation</h2></div>
+      <pre><code>@inproceedings{zhang2026reliablevlmjudges,
+  title     = {Towards Reliable {VLM} Judges: State-Conditional Invariance and Presentation-Aware Diagnostics},
+  author    = {Zhang, Qinan and Wang, Xinyu and Jin, Qihang and Wang, Tianyuan and Luo, Hongbing and Li, Pengfei and Lv, Wenjun and Kang, Yu and Di, Jian},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026},
+  note      = {Accepted to the NeurIPS 2026 Evaluations and Datasets Track},
+  eprint    = {2611.13596},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2611.13596}
+}</code></pre>
+    </section>
 
     <section id="resources" class="section resources"><div><p class="eyebrow">REPRODUCIBLE BY CONSTRUCTION</p><h2>From trajectories to verdicts.</h2><p>Generate images, build exams, collect responses and score them with the same pipeline.</p></div><a class="button primary" href="https://github.com/xinyuw922-pixel/Towards-Reliable-VLM-Judge" target="_blank" rel="noreferrer">Explore the code <i data-lucide="arrow-up-right"></i></a></section>
     <footer><span>Towards Reliable VLM Judges · State-Conditional Invariance</span><span>University of Science and Technology of China</span></footer>

@@ -96,7 +96,7 @@ Promise.all(["examples.json","showcase.json?v=20261111-agent-view"].map(url=>fet
   if(!"ABCDE".includes(state.task)||state.task.length!==1)state.task="C";
   if(!["composite","split"].includes(state.rep))state.rep="composite";
   showcase();render();
-  if(["principle","examples","benchmark","resources"].includes(anchor)){
+  if(["principle","examples","benchmark","citation","resources"].includes(anchor)){
     history.replaceState(null,"","#"+anchor);
     requestAnimationFrame(()=>$(anchor).scrollIntoView());
   }
