@@ -29,9 +29,9 @@ svg { width: 18px; height: 18px; stroke-width: 1.8; flex-shrink: 0; }
 button svg { pointer-events: none; }
 main { max-width: 1100px; margin: auto; padding: 0 32px; }
 section { scroll-margin-top: 28px; }
-.site-nav { height: 46px; display: flex; align-items: center; justify-content: center; }
-.site-nav nav { display: flex; gap: 30px; font-size: 13px; }
-.site-nav a { color: #8b8b8b; }
+.site-nav { height: 52px; display: flex; align-items: center; justify-content: center; }
+.site-nav nav { display: flex; gap: 30px; font-size: 16px; font-weight: 600; }
+.site-nav a { color: #444; }
 .site-nav a:hover { color: var(--blue); }
 .publication { text-align: center; padding: 28px 0 35px; max-width: 1000px; margin: auto; }
 h1 { font-size: 43px; font-weight: 650; line-height: 1.14; color: #0798e2; }
@@ -162,8 +162,8 @@ dialog img { display: block; max-width: 100%; height: auto; margin: auto; }
 }
 @media (max-width: 760px) {
   main { padding: 0 19px; }
-  .site-nav { height: 40px; }
-  .site-nav nav { gap: 25px; font-size: 12px; }
+  .site-nav { height: 46px; }
+  .site-nav nav { gap: 20px; font-size: 14px; }
   .publication { padding: 22px 0 26px; }
   h1 { font-size: 30px; line-height: 1.2; }
   .paper-subtitle { font-size: 25px; line-height: 1.25; margin-top: 8px; }
