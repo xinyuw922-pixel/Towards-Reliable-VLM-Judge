@@ -516,6 +516,12 @@ Generated images, exams, requests and responses stay outside the source tree.
   incorrect answers do not trigger automatic retries. API-error runs exit 2.
 - Scoring and experiment builders require fresh output directories. Duplicate
   or unexpected response IDs are rejected. Merge only disjoint response shards.
+- MiniGrid `merge_banks`, `select_bank`, `generate_navigation`, and
+  `generate_interactions` preserve previous outputs in a sibling
+  `.<name>.backup-*/<name>/` directory when rerun. `build_exams --overwrite`
+  uses the same backup behavior. The backup path is printed to stderr;
+  backups remain on disk until explicitly removed. These tools reject broad
+  system/source-code paths, symlinked outputs, and overlapping input/output roots.
 - API requests preserve ordered images, raw provider JSON, finish reasons and
   retry attempts. Each inference output has one writer; use distinct outputs
   with `--num-shards`/`--shard-id` for independent processes.

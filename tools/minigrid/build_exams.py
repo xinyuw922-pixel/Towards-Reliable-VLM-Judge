@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +16,7 @@ from typing import Any
 from tools.minigrid.task_a import build_task_a
 from tools.minigrid.task_c import build_base_task_c as build_task_c
 from tools.minigrid.task_d import build_base_task_d as build_task_d
+from utils.output_directory import prepare_output_directory, validate_output_directory
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "outputs/scale2"
@@ -48,7 +48,7 @@ from utils.json_io import write_jsonl_utf8 as write_jsonl
 
 def resolve(path: str | Path) -> Path:
     p = Path(path)
-    return p if p.is_absolute() else (ROOT / p).resolve()
+    return p if p.is_absolute() else ROOT / p
 
 
 
@@ -97,13 +97,9 @@ def main() -> None:
 
     raw_root = resolve(args.raw_root)
     out_dir = resolve(args.out_dir)
-    if out_dir.exists():
-        if not args.overwrite:
-            raise FileExistsError(out_dir)
-        shutil.rmtree(out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
-
+    validate_output_directory(out_dir, source_roots=(raw_root,))
     rows = load_jsonl(raw_root / "triplets.jsonl")
+    out_dir = prepare_output_directory(out_dir, source_roots=(raw_root,), overwrite=args.overwrite)
     task_c = build_task_c(raw_root, rows, out_dir)
     task_d = build_task_d(task_c, out_dir)
     task_a = build_task_a(raw_root, rows, out_dir, target_rows=args.task_a_target)

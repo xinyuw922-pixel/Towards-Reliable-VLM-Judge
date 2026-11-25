@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import shutil
+from utils.output_directory import prepare_output_directory
 from pathlib import Path
 from typing import Any
 
@@ -42,7 +43,7 @@ INTERACTION_ENVS = {
 
 def resolve(path: str | Path) -> Path:
     p = Path(path)
-    return p if p.is_absolute() else (ROOT / p).resolve()
+    return p if p.is_absolute() else ROOT / p
 
 
 from utils.minigrid_state import front_cell_summary
@@ -241,9 +242,12 @@ def main() -> None:
 
     os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
     out_dir = resolve(args.out_dir)
-    if out_dir.exists():
-        shutil.rmtree(out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
+    selected_keys = [x.strip() for x in args.env_keys.split(",") if x.strip()]
+    if not selected_keys or set(selected_keys) - INTERACTION_ENVS.keys():
+        ap.error('Unknown or empty environment selection')
+    if args.num_per_env <= 0 or args.max_seed_attempts_per_env <= 0:
+        ap.error('Generation counts must be positive')
+    out_dir = prepare_output_directory(out_dir)
     records = []
     manifest = {
         "generator": 'generate_interactions.py',
@@ -252,7 +256,7 @@ def main() -> None:
         "envs": [],
     }
     group_idx = 0
-    for env_key in [x.strip() for x in args.env_keys.split(",") if x.strip()]:
+    for env_key in selected_keys:
         spec = INTERACTION_ENVS[env_key]
         accepted = 0
         attempted = 0
