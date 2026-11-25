@@ -19,13 +19,14 @@ OUT_DIR = Path(os.environ.get("GRIDWM_REPORT_ROOT", str(ROOT / "outputs/scale2/g
 
 def resolve(path: str | Path) -> Path:
     p = Path(path)
-    return p if p.is_absolute() else (ROOT / p).resolve()
+    return p if p.is_absolute() else ROOT / p
 
 
 from utils.minigrid_io import load_jsonl
 
 
 from utils.minigrid_groups import group_rows
+from utils.output_directory import prepare_output_directory, validate_output_directory
 
 
 def source_roots(root: Path) -> list[Path]:
@@ -74,20 +75,26 @@ def main() -> None:
     args = ap.parse_args()
 
     out_root = resolve(args.out_root)
-    if out_root.exists():
-        shutil.rmtree(out_root)
-    out_root.mkdir(parents=True, exist_ok=True)
+    sources = []
+    for spec in args.source:
+        if "=" not in spec:
+            ap.error(f"Invalid source spec: {spec}")
+        name, raw_root = spec.split("=", 1)
+        if not name or not raw_root:
+            ap.error(f"Invalid source spec: {spec}")
+        src_root = resolve(raw_root)
+        validate_output_directory(out_root, source_roots=(src_root,))
+        roots = source_roots(src_root)
+        if not roots:
+            ap.error(f"No triplet banks found: {src_root}")
+        sources.append((name, src_root, roots))
 
     merged_rows: list[dict[str, Any]] = []
     seen_groups = set()
     source_reports = []
     groups_by_task: dict[str, int] = defaultdict(int)
-    for spec in args.source:
-        if "=" not in spec:
-            raise SystemExit(f"Invalid source spec: {spec}")
-        name, raw_root = spec.split("=", 1)
-        src_root = resolve(raw_root)
-        roots = source_roots(src_root)
+    copies = []
+    for name, src_root, roots in sources:
         rows_total = 0
         groups_total = 0
         for leaf_root in roots:
@@ -101,8 +108,10 @@ def main() -> None:
                 seen_groups.add(group_id)
                 src_group_dir = leaf_root / group_id
                 dst_group_dir = out_root / group_id
+                if Path(group_id).name != group_id or group_id in ('', '.', '..'):
+                    raise ValueError(f"Invalid group_id: {group_id}")
                 if src_group_dir.exists():
-                    shutil.copytree(src_group_dir, dst_group_dir)
+                    copies.append((src_group_dir, dst_group_dir))
                 merged_rows.extend(group)
                 task = str((group[0].get("task") or group[0].get("env_task") or "unknown"))
                 groups_by_task[task] += 1
@@ -114,6 +123,9 @@ def main() -> None:
             "rows": rows_total,
         })
 
+    out_root = prepare_output_directory(out_root, source_roots=tuple(s[1] for s in sources))
+    for source, destination in copies:
+        shutil.copytree(source, destination)
     with (out_root / "triplets.jsonl").open("w", encoding="utf-8") as f:
         for row in merged_rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")

@@ -14,6 +14,7 @@ from typing import Any
 
 from utils.minigrid_similarity import image_ahash, selected_frame_indices, stable_hash
 from utils.json_io import load_jsonl
+from utils.output_directory import prepare_output_directory, validate_output_directory
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -156,22 +157,26 @@ def main() -> None:
     ap.add_argument("--near-image-mean-threshold", type=float, default=4.0)
     ap.add_argument("--report-stem", default="triplet_bank_selection_report")
     args = ap.parse_args()
+    if args.target_per_env <= 0:
+        ap.error('Target per environment must be positive')
 
     source_root = Path(args.source_root)
     out_root = Path(args.out_root)
     if not source_root.is_absolute():
         source_root = (ROOT / source_root).resolve()
     if not out_root.is_absolute():
-        out_root = (ROOT / out_root).resolve()
-    if out_root.exists():
-        shutil.rmtree(out_root)
-    out_root.mkdir(parents=True, exist_ok=True)
+        out_root = ROOT / out_root
+    out_root = validate_output_directory(out_root, source_roots=(source_root,))
 
     rows = load_jsonl(source_root / "triplets.jsonl")
     candidates = [
         summarize_candidate(source_root, group)
         for group in group_rows(rows).values()
     ]
+    for candidate in candidates:
+        group_id = candidate['group_id']
+        if Path(group_id).name != group_id or group_id in ('', '.', '..'):
+            raise ValueError(f'Invalid group_id: {group_id}')
     by_env: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for cand in candidates:
         by_env[cand["env_key"]].append(cand)
@@ -194,6 +199,7 @@ def main() -> None:
             "rejected": rejected,
         })
 
+    out_root = prepare_output_directory(out_root, source_roots=(source_root,))
     with (out_root / "triplets.jsonl").open("w", encoding="utf-8") as f:
         for cand in selected_all:
             copy_group(source_root, out_root, cand["group_id"])
