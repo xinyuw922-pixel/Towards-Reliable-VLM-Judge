@@ -1,35 +1,42 @@
-&lt;!-- Thanks for contributing to GridWM-Judge! --&gt;
+<!-- Thank you for contributing to GridWM-Judge! Please read CONTRIBUTING.md. -->
 
 ## Summary
 
-&lt;!-- What does this PR change and why? Link related issues. --&gt;
+<!-- Briefly explain the problem and the proposed change. -->
 
-Closes #&lt;!-- issue number, if any --&gt;
+## Related issues
 
-## Type of change
+<!-- Use "Closes #123" only if applicable; otherwise write "None". -->
 
-- [ ] Bug fix (non-breaking change that fixes an issue)
-- [ ] New feature / task / probe
-- [ ] Scoring or metric change
-- [ ] Documentation / README update
-- [ ] Refactor / tooling
-- [ ] Other (please describe):
+## Change type
+
+- [ ] Bug fix
+- [ ] New feature / diagnostic task / probe
+- [ ] Scoring / metric / protocol change
+- [ ] Documentation / accessibility / community standards
+- [ ] Refactoring / tooling / dependencies
+- [ ] Other (describe below)
+
+## Scientific / reproducibility impact
+
+<!-- If tasks, prompts, group construction, answer keys, model-facing evidence, or scores change, describe the effect on published protocols and metrics. Write N/A otherwise. -->
+
+## Validation
+
+<!-- List exact checks and results. Do not claim to have run tests that were not run. -->
+
+- Commands / checks performed:
+- Relevant output, screenshots, or score differences:
+- Tests not run (and why):
 
 ## Checklist
 
-- [ ] I ran the relevant workflow from the repository root
-- [ ] If generation / scoring was affected, I verified with `--profile smoke` (or a small subset)
-- [ ] Scoring and experiment builders were tested with a **fresh** output directory
-- [ ] If `--resume` behavior changed, resume invariants (code, config, seed, interpreter, renderer) are preserved or documented
-- [ ] I did not commit generated outputs (`outputs/`, run directories, responses, or images)
-- [ ] `environments/*.yml` / `requirements/*.lock.txt` are updated if dependencies changed
-- [ ] README or relevant docs are updated for user-facing changes
-- [ ] New code follows the existing `scripts -&gt; tools -&gt; tools/utils` layering (utilities import no project modules)
+<!-- Complete applicable checks; mark others N/A in the text above. -->
 
-## Evidence (optional)
-
-&lt;!-- Logs, score diffs, `scoring_receipt.json` excerpts, or screenshots supporting the change. --&gt;
-
-## License
-
-- [ ] I agree to license this contribution under the repository's MIT License.
+- [ ] I read `CONTRIBUTING.md` and checked for overlapping work.
+- [ ] I ran applicable smoke, unit, or workflow checks (or explained N/A).
+- [ ] I used fresh output directories for changed generation/scoring workflows (or N/A).
+- [ ] I documented any benchmark, prompt, metric, schema, or reproducibility changes (or N/A).
+- [ ] I have not committed secrets, generated runs, API responses, or third-party licensed assets.
+- [ ] I updated relevant docs and pinned dependencies where needed (or N/A).
+- [ ] I agree to license my contributed source code and documentation under the repository's MIT License, excluding third-party material governed by its own license.
